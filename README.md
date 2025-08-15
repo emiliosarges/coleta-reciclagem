@@ -2,7 +2,6 @@
 
 Plataforma web simples para visualizar e cadastrar pontos de coleta de resíduos, incentivando o **descarte correto** e a **economia sustentável**.
 
-![Mapa de Pontos de Coleta](./public/preview.png)
 
 ---
 
