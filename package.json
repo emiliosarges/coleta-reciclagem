@@ -1,0 +1,24 @@
+{
+  "name": "coleta-reciclagem",
+  "version": "1.0.0",
+  "description": "Mapa de Pontos de Coleta e Reciclagem da Cidade",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "leaflet",
+    "recycling",
+    "coleta",
+    "reciclagem",
+    "node",
+    "express"
+  ],
+  "author": "Você",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "uuid": "^9.0.1"
+  }
+}

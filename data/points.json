@@ -1,0 +1,28 @@
+{
+  "points": [
+    {
+      "id": "seed-1",
+      "name": "EcoPonto Central",
+      "address": "Praça Central, 123 - Centro",
+      "lat": -15.793889,
+      "lng": -47.882778,
+      "materials": ["Vidro", "Plástico", "Papel", "Metal"],
+      "hours": "Seg-Sáb, 9h-18h",
+      "contact": "(61) 99999-0000",
+      "notes": "Tragam materiais limpos e secos.",
+      "createdAt": "2025-08-01T12:00:00.000Z"
+    },
+    {
+      "id": "seed-2",
+      "name": "Coleta de Óleo da Vila",
+      "address": "Av. das Árvores, 456 - Vila Verde",
+      "lat": -15.835,
+      "lng": -47.913,
+      "materials": ["Óleo de cozinha"],
+      "hours": "Seg-Sex, 8h-17h",
+      "contact": "(61) 98888-1111",
+      "notes": "Entregar óleo em garrafas PET bem fechadas.",
+      "createdAt": "2025-08-02T10:30:00.000Z"
+    }
+  ]
+}

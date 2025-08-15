@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa de Pontos de Coleta</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Mapa de Pontos de Coleta e Reciclagem</h1>
+    <p>Encontre locais para descartar corretamente seus resíduos e contribua com a economia sustentável.</p>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <h2>Filtrar por material</h2>
+        <select id="materialFilter">
+          <option value="">Todos os materiais</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <h2>Pontos cadastrados</h2>
+        <ul id="pointsList" class="points-list"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Adicionar novo ponto</h2>
+        <p class="muted">Clique no mapa para preencher Latitude/Longitude automaticamente.</p>
+        <form id="addPointForm">
+          <label>Nome*
+            <input type="text" name="name" placeholder="Ex: EcoPonto Bairro X" required />
+          </label>
+
+          <label>Endereço*
+            <input type="text" name="address" placeholder="Rua, número, bairro" required />
+          </label>
+
+          <div class="row">
+            <label>Latitude*
+              <input type="number" step="any" name="lat" placeholder="-15.8" required />
+            </label>
+            <label>Longitude*
+              <input type="number" step="any" name="lng" placeholder="-47.9" required />
+            </label>
+          </div>
+
+          <label>Materiais aceitos* (separe por vírgula)
+            <input type="text" name="materials" placeholder="Vidro, Plástico, Papel" required />
+          </label>
+
+          <label>Horários
+            <input type="text" name="hours" placeholder="Seg-Sex, 9h-18h" />
+          </label>
+
+          <label>Contato
+            <input type="text" name="contact" placeholder="Telefone/WhatsApp/E-mail" />
+          </label>
+
+          <label>Observações
+            <textarea name="notes" rows="3" placeholder="Ex: trazer limpo e seco"></textarea>
+          </label>
+
+          <button type="submit" class="btn">Salvar ponto</button>
+          <p class="muted small">* Campos obrigatórios</p>
+          <p id="formMsg" class="msg"></p>
+        </form>
+      </div>
+    </aside>
+
+    <section class="map-section">
+      <div id="map"></div>
+      <div class="map-actions">
+        <button id="locateBtn" class="btn secondary">Usar minha localização</button>
+        <span class="muted small">Dica: clique no mapa para sugerir a coordenada do novo ponto.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Feito com Leaflet + OpenStreetMap</span>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script src="./app.js"></script>
+</body>
+</html>
