@@ -25,7 +25,7 @@ async function init(){
 
 // Inicia o mapa
 function initMap(){
-  // Centro aproximado do Brasil; o usuário pode clicar em "Usar minha localização"
+  // Centro aproximado (pode ajustar depois)
   map = L.map('map', { scrollWheelZoom: true }).setView([-15.78, -47.92], 11);
 
   // Tiles do OpenStreetMap
@@ -50,6 +50,7 @@ function initMap(){
 async function loadMaterials(){
   try{
     const res = await fetch('/api/materials');
+    if (!res.ok) throw new Error('Falha ao carregar materiais');
     const data = await res.json();
     const mats = data.materials || [];
     mats.forEach(m => {
@@ -67,6 +68,7 @@ async function loadMaterials(){
 async function loadPoints(){
   try{
     const res = await fetch('/api/points');
+    if (!res.ok) throw new Error('Falha ao carregar pontos');
     const data = await res.json();
     allPoints = data.points || [];
     renderPoints();
@@ -138,8 +140,8 @@ function bindEvents(){
     const payload = {
       name: formData.get('name'),
       address: formData.get('address'),
-      lat: formData.get('lat'),
-      lng: formData.get('lng'),
+      lat: Number(formData.get('lat')),
+      lng: Number(formData.get('lng')),
       materials: String(formData.get('materials') || '')
                   .split(',')
                   .map(s => s.trim())
@@ -167,7 +169,6 @@ function bindEvents(){
       formMsg.textContent = 'Ponto salvo com sucesso!';
       formMsg.style.color = '#22c55e';
       renderPoints();
-      // Foca e destaca no mapa
       map.setView([point.lat, point.lng], 15);
     }catch(err){
       formMsg.textContent = err.message || 'Falha ao salvar ponto.';
